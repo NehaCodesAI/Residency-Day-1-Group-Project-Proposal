@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "RESIDENCY-DAY-1-GROUP-Project"
+version = "0.1.0"
+description = "A chatbot that answers immigration questions thoroughly, impatiently, and politely."
+authors = [
+    { name = "Group1", email = "XXXX@uc.edu" }
+]
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "django",
+    "flask",
+    "python-dotenv",
+    "requests",
+]
+
+[tool.setuptools]
+packages = ["src"] 
