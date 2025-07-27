@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisaGenie</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #F9FAFB;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #1D1D1D;
+      text-align: center;
+    }
+
+    .container {
+      width: 1440px;
+      padding: 40px;
+    }
+
+    .logo {
+      width: 210px;
+      height: 211px;
+      margin: 0 auto 20px auto;
+    }
+
+    .welcome-heading {
+      font-size: 50px;
+      font-weight: 700;
+      width: 875px;
+      margin: 0 auto;
+    }
+
+    .visa {
+      color: #5DADE2;
+    }
+
+    .genie {
+      color: #8572A3;
+    }
+
+    .tagline {
+      font-size: 28px;
+      color: #ADB1B1;
+      font-weight: 600;
+      margin-top: 15px;
+      margin-bottom: 50px;
+    }
+
+    .hello {
+      font-size: 48px;
+      color: #727272;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      width: 753px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #727272;
+      margin: 0 auto 40px auto;
+      line-height: 1.5;
+    }
+
+    .magical {
+      color: #8572A3;
+      font-weight: 500;
+    }
+
+    .confident {
+      color: #5DADE2;
+      font-weight: 500;
+    }
+
+    .dropdown-wrapper {
+      width: 420px;
+      height: 84px;
+      border-radius: 20px;
+      border: 3px solid #5DADE2;
+      background: #F9FAFB;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      cursor: pointer;
+    }
+
+    .dropdown-text {
+      font-size: 24px;
+      color: #2A4D69;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .arrow-icon {
+      width: 16.828px;
+      height: 9.828px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      width: 420px;
+      background: #fff;
+      border-radius: 12px;
+      margin: 10px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      font-size: 24px;
+      font-weight: 500;
+      color: #0F0F0F;
+      cursor: pointer;
+    }
+
+    .dropdown-item img {
+      width: 36px;
+      height: 19px;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f0f4f8;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 20px;
+      color: #717272;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="{{ url_for('static', filename='main logo.svg') }}" alt="VisaGenie Logo" class="logo">
+
+    <h1 class="welcome-heading">
+      Welcome to <span class="visa">Visa</span><span class="genie">Genie</span>
+    </h1>
+
+    <p class="tagline">Making visa questions vanish like magic</p>
+
+    <p class="hello">Hello!</p>
+    <p class="intro-text">
+      I'm <span class="visa">Visa</span><span class="genie">Genie</span>, your <span class="semi-bold">personal visa assistant</span>. I'm here to guide you through your visa journey <span class="magical">magically</span> and <span class="confident">confidently</span>.
+    </p>
+
+    <div class="dropdown-wrapper" onclick="toggleDropdown()">
+      <span class="dropdown-text">Enter your Country</span>
+      <img src="{{ url_for('static', filename='Arrow - Down 2.png') }}" class="arrow-icon" alt="dropdown">
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+      <div class="dropdown-item">
+        <img src="{{ url_for('static', filename='Flag_of_the_United_States.svg.png') }}" alt="USA">
+        United States of America
+      </div>
+      <div class="dropdown-item">
+        <img src="{{ url_for('static', filename='Flag_of_the_United_Kingdom.svg.png') }}" alt="UK">
+        United Kingdom
+      </div>
+      <div class="dropdown-item">
+        <img src="{{ url_for('static', filename='Flag_of_Canada.svg.png') }}" alt="Canada">
+        Canada
+      </div>
+    </div>
+
+    <footer>
+      © 2025 VisaGenie | Privacy | Terms
+    </footer>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById("dropdownMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    window.addEventListener("click", function (e) {
+      if (!e.target.closest(".dropdown-wrapper")) {
+        document.getElementById("dropdownMenu").style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- File: chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisaGenie Chat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='chat-style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="chat-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="{{ url_for('static', filename='main logo.svg') }}" alt="VisaGenie Logo" class="sidebar-logo" />
+      <button class="new-chat">+ New Chat</button>
+      <input type="text" placeholder="Search chats" class="search-input" />
+      <div class="chat-history">
+        <!-- Dynamic chat history will go here -->
+      </div>
+    </aside>
+
+    <!-- Main Chat Panel -->
+    <main class="main-chat">
+      <div class="chat-header">
+        <h1>Welcome back to <span class="visa">Visa</span><span class="genie">Genie</span>!</h1>
+        <p class="chat-subtitle">Ask me anything about your visa to USA, UK, or Canada ✨</p>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <!-- Sample messages -->
+        <div class="chat-message bot">
+          <img src="{{ url_for('static', filename='main logo.svg') }}" class="avatar" />
+          <div class="message genie">Hello! I’m VisaGenie. How can I help you today? <span class="sparkle">✨✨</span></div>
+        </div>
+        <div class="chat-message user">
+          <div class="message user-msg">What are the visa requirements for Canada?</div>
+        </div>
+      </div>
+
+      <!-- Input Bar -->
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your question here..." />
+        <button id="sendBtn">Send</button>
+      </div>
+
+      <!-- Footer -->
+      <footer class="chat-footer">
+        © 2025 VisaGenie | Privacy | Terms
+      </footer>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

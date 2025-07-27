@@ -1,0 +1,178 @@
+/* Fonts and box sizing */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #F9FAFB;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #727272;
+  text-align: center;
+}
+
+.container {
+  max-width: 1440px;
+  height: 1024px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Section spacing */
+.section {
+  margin-bottom: 60pt;
+}
+
+/* Section 1 */
+.main-logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 210px;
+  height: auto;
+}
+
+.welcome-title {
+  font-weight: 700; /* Bold */
+  font-size: 50pt;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.welcome-title .visa {
+  color: #5DADE2;
+}
+
+.welcome-title .genie {
+  color: #8572A3;
+}
+
+.tagline {
+  font-weight: 600; /* Semi-bold */
+  font-size: 28pt;
+  color: #ADB1B1;
+  margin-top: 10px;
+}
+
+/* Section 2 */
+.hello-text {
+  font-weight: 500; /* Medium */
+  font-size: 48pt;
+  margin: 0;
+  color: #727272;
+}
+
+.intro-text {
+  font-size: 24pt;
+  margin-top: 15px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #727272;
+  line-height: 1.4;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.highlight {
+  font-weight: 600;
+  color: #727272;
+}
+
+.intro-text .visa {
+  font-weight: 600;
+  color: #5DADE2;
+  font-size: 24pt;
+}
+
+.intro-text .genie {
+  font-weight: 600;
+  color: #8572A3;
+  font-size: 24pt;
+}
+
+/* Section 3 */
+.section-3 {
+  position: relative;
+}
+
+.dropdown-wrapper {
+  width: 400px;
+  height: 65px;
+  margin: 0 auto;
+  background-image: url('../static/Enter your country UI.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 15px;
+  position: relative;
+}
+
+.arrow-icon {
+  width: 16.83px;
+  height: 9.83px;
+  object-fit: contain;
+  margin-left: 10px;
+}
+
+.dropdown-text {
+  font-weight: 500; /* Medium */
+  font-size: 24pt;
+  color: #2A4D69;
+  user-select: none;
+}
+
+/* Dropdown options */
+.dropdown-options {
+  display: none;
+  width: 400px;
+  margin: 0 auto;
+  background-image: url('../static/UI Selection.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  font-weight: 500;
+  font-size: 24pt;
+  cursor: pointer;
+  color: #2A4D69;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(93, 173, 226, 0.2);
+  border-radius: 10px;
+}
+
+.flag-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  object-fit: contain;
+}
+
+/* Footer */
+.footer {
+  font-weight: 400; /* Regular */
+  font-size: 20pt;
+  color: #717272;
+  margin-top: auto;
+  padding: 40px 0 20px 0;
+  user-select: none;
+}
