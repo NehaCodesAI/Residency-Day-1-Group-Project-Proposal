@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VisaGenie Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}" />
+</head>
+<body>
+  <div class="chat-container">
+    <header class="chat-header">
+      <img src="{{ url_for('static', filename='logo.svg') }}" alt="VisaGenie Logo" class="chat-logo" />
+      <h2>Ask VisaGenie</h2>
+    </header>
+
+    <div id="chat-window" class="chat-window"></div>
+
+    <form id="chat-form" class="chat-form" autocomplete="off">
+      <input
+        id="user-input"
+        type="text"
+        placeholder="Ask about US, UK, or Canada visas..."
+        required
+        autocomplete="off"
+      />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const chatWindow = document.getElementById('chat-window');
+    const chatForm = document.getElementById('chat-form');
+    const userInput = document.getElementById('user-input');
+    const country = "{{ country }}";  // Get the country from the server-side
+
+    function appendMessage(sender, text) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', sender);
+      messageDiv.textContent = text;
+      chatWindow.appendChild(messageDiv);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const question = userInput.value.trim();
+      if (!question) return;
+
+      appendMessage('user', question);
+      userInput.value = '';
+      appendMessage('genie', 'Thinking...');
+
+      try {
+        const response = await fetch('/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question, country }),
+        });
+        const data = await response.json();
+
+        // Remove 'Thinking...' message
+        const thinkingMessage = [...chatWindow.querySelectorAll('.message.genie')].pop();
+        if (thinkingMessage && thinkingMessage.textContent === 'Thinking...') {
+          thinkingMessage.remove();
+        }
+
+        appendMessage('genie', data.answer);
+      } catch (error) {
+        console.error('Error:', error);
+        appendMessage('genie', 'Oops! Something went wrong. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>
