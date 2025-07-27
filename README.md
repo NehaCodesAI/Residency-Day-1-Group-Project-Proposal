@@ -2,7 +2,7 @@
 Proposal for an Interactive Visa Support Chatbot Outlining a project to build a chatbot that offers step-by-step visa information and assistance.
 
 ### Local Development Setup
-The MCQ-generation workflow uses Python >=3.10.  
+The Chatbot workflow uses Python >=3.10.  
 
 ```shell
 # 1. Clone the repository
