@@ -23,7 +23,7 @@ with open("./src/visa.yaml", encoding="utf-8") as f:
 system_prompt = prompts_data.get('system_prompt', '')
 user_prompt = prompts_data.get('user_prompt', '')
 
-def visa_question_answering_batch(question: str, country: str = "US", model: str = "gpt-4o") -> str:
+def visa_question_answering_batch(question: str, home_country: str, country: str = "US", model: str = "gpt-4o") -> str:
     """
     Function to answer visa-related questions using OpenAI's API in a batch manner.
 
@@ -41,6 +41,7 @@ def visa_question_answering_batch(question: str, country: str = "US", model: str
     # Populate prompts with dynamic content
     system_prompt_populated = system_prompt.replace("<country>", country)
     user_prompt_populated = user_prompt.replace("<question>", question)
+    user_prompt_populated = user_prompt.replace("<home_country>", home_country)
 
     try:
         # Create a chat completion request without streaming
